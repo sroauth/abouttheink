@@ -46,7 +46,7 @@ export default function Auth() {
           name="alias"
           id="alias"
           placeholder="johndoe"
-          class="flex-grow border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
+          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
           onInput={(e) => setAlias(e.target.value)}
         />
       </div>
@@ -57,7 +57,7 @@ export default function Auth() {
           name="password"
           id="password"
           placeholder="********"
-          class="flex-grow border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
+          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
           onInput={(e) => setPassword(e.target.value)}
         />
       </div>

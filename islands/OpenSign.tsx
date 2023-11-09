@@ -41,7 +41,7 @@ export default function OpenSign() {
     <div class="mb-4">
       <details open={artists.length > 0}>
         <summary
-          class={`font-sans p-4 font-bold text-3xl ${
+          class={`font-sans p-4 font-bold text-2xl ${
             artists.length > 0
               ? "bg-green-600 text-white"
               : "bg-red-600 text-white"
@@ -51,10 +51,13 @@ export default function OpenSign() {
             ? "Artists available for walk-ins"
             : "No artists available for walk-ins"}
         </summary>
-        <ul class="list-disc list-inside border-l border-b border-r border-gray-400 text-xl p-2 pl-6">
+        <ul class="list-disc list-inside border-l border-b border-r border-gray-400 text-xl p-2 pl-5">
           {artists.map((item) => (
             <li>
-              <a href="#View_our_artists" class="text-blue-600 underline">
+              <a
+                href={`#Artist_${item.replace(" ", "_")}`}
+                class="text-blue-600 underline"
+              >
                 {item}
               </a>{" "}
               {"<- "}

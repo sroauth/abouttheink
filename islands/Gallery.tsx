@@ -55,7 +55,7 @@ export default function Gallery() {
         {items.map((item) => (
           <div class="pt-[100%] relative">
             <img
-              src={`https://gateway.ipfs.io/ipfs/${item.mediaCid}`}
+              src={`https://${item.mediaCid}.ipfs.w3s.link`}
               alt=""
               class="absolute top-0 w-full h-full object-cover pointer-events-none"
             />

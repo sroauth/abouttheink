@@ -31,7 +31,7 @@ export default function CatalogItemDetails(props) {
       {Object.keys(item).length > 0
         ? (
           <img
-            src={`https://gateway.ipfs.io/ipfs/${item.mediaCid}`}
+            src={`https://${item.mediaCid}.ipfs.w3s.link`}
             alt=""
             class="mb-0.5"
           />
