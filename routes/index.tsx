@@ -177,11 +177,11 @@ export default function Home() {
             </h3>
 
             <div>
-              <div id="Artist_Jason_Auth" class="flex gap-4 mb-4">
+              <div id="Artist_Jason_Auth" class="flex gap-4 mb-4 pb-4 border-b">
                 <img
                   src="/images/artists/jason-auth.jpg"
                   alt=""
-                  class="w-[150px]"
+                  class="w-[150px] h-[150px]"
                 />
 
                 <div>
@@ -218,11 +218,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div id="Artist_Ashley_Cooksey" class="flex gap-4 mb-4">
+              <div
+                id="Artist_Ashley_Cooksey"
+                class="flex gap-4 mb-4 pb-4 border-b"
+              >
                 <img
                   src="/images/artists/ashley-cooksey.jpg"
                   alt=""
-                  class="w-[150px]"
+                  class="w-[150px] h-[150px]"
                 />
 
                 <div>
@@ -259,11 +262,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div id="Artist_Sabastian_Auth" class="flex gap-4 mb-4">
+              <div
+                id="Artist_Sabastian_Auth"
+                class="flex gap-4 mb-4 pb-4 border-b"
+              >
                 <img
                   src="/images/artists/sabastian-auth.jpg"
                   alt=""
-                  class="w-[150px]"
+                  class="w-[150px] h-[150px]"
                 />
 
                 <div>
