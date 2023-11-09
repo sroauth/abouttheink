@@ -1,101 +1,163 @@
+import { useSignal } from "@preact/signals";
 import { useState } from "preact/hooks";
-import {
-  firstName,
-  lastName,
-  dob,
-  email,
-  phoneNumber,
-  phoneCarrier,
-  referencePhotoCid,
-} from "@/utils/appointment.ts";
+import { Gun, User, uuid } from "../utils/gun.ts";
 
 export default function Form() {
-  const [refPhotoSrc, setRefPhotoSrc] = useState("");
+  const gun = Gun.value;
+  const user = User.value;
 
-  function showPreview(event) {
-    if (event.target.files.length > 0) {
-      var src = URL.createObjectURL(event.target.files[0]);
-      setRefPhotoSrc(src);
+  const fileEntered = useSignal(false);
+  const fileUrl = useSignal("");
+
+  const [file, setFile] = useState(null);
+  const [isTransferring, setIsTransferring] = useState(false);
+
+  function handleDragOver(event) {
+    event.preventDefault();
+
+    fileEntered.value = true;
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+
+    if (event.dataTransfer.items) {
+      [...event.dataTransfer.items].forEach((item, i) => {
+        if (item.kind === "file") {
+          const thisFile = item.getAsFile();
+          setFile(thisFile);
+          fileEntered.value = false;
+
+          const reader = new FileReader();
+          reader.onload = (
+            function (theFile) {
+              return function (e) {
+                fileUrl.value = e.target.result;
+              };
+            }
+          )(thisFile);
+          reader.readAsDataURL(thisFile);
+        }
+      });
+    } else {
+      [...event.dataTransfer.files].forEach((thisFile, i) => {
+        console.log(thisFile);
+        fileEntered.value = false;
+      });
     }
   }
 
+  function handleCancel() {
+    fileUrl.value = "";
+  }
+
+  async function uploadFile(event) {
+    event.preventDefault();
+
+    setIsTransferring(true);
+
+    const resp = await fetch("https://api.web3.storage/upload", {
+      method: "POST",
+      headers: {
+        Authorization:
+          `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEVhQzY4ZjBENGRGMjE4RUUzMzU3MzVFRWJEMTE0Q0E5NDY0ZTFkODAiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NTExOTY4ODA3MjUsIm5hbWUiOiJtYXRyaXgifQ.dlgmo-kewygy70SsYHiNsKj1Rg_ulYjYhlGMhgwYdIs`,
+      },
+      body: file,
+    });
+
+    if (!resp.ok) {
+      return <h1>An Error occurred</h1>;
+    }
+
+    const response = await resp.json();
+
+    console.log(
+      response.cid,
+      event.target.comments.value,
+    );
+
+    setIsTransferring(false);
+    fileUrl.value = "";
+
+    user.get("catalog").get(uuid()).put({
+      mediaCid: response.cid,
+      comments: event.target.comments.value,
+    });
+  }
+
+  function handleChange(event) {
+    setFile(event.target.files[0]);
+
+    const reader = new FileReader();
+    reader.onload = (
+      function (theFile) {
+        return function (e) {
+          fileUrl.value = e.target.result;
+        };
+      }
+    )(event.target.files[0]);
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
   return (
-    <div class="text-xl">
-      <div class="w-[320px] flex gap-1">
-        <input
-          type="text"
-          placeholder="First name"
-          class="w-0 flex-grow bg-[#E5E9F0] py-2 px-3 outline-none"
-          onInput={(e) => (firstName.value = e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Last name"
-          class="w-0 flex-grow bg-[#E5E9F0] py-2 px-3 outline-none"
-          onInput={(e) => (lastName.value = e.target.value)}
-        />
-      </div>
-
-      <div class="mt-1">
-        <label for="dob" class="px-3 text-lg text-gray-600">
-          Date of birth
-        </label>
-        <input
-          type="date"
-          id="dob"
-          name="dob"
-          class="w-[320px] bg-[#E5E9F0] py-2 px-3"
-          onChange={(e) => (dob.value = e.target.value)}
-        />
-      </div>
-
-      <div class="mt-1">
-        <input
-          type="email"
-          placeholder="jamie.doe@example.com"
-          class="w-[320px] bg-[#E5E9F0] py-2 px-3 outline-none"
-          onInput={(e) => (email.value = e.target.value)}
-        />
-      </div>
-
-      <div class="flex gap-1 mt-1">
-        <input
-          type="tel"
-          placeholder="(123) 456-7890"
-          class="w-0 flex-grow bg-[#E5E9F0] py-2 px-3"
-          onInput={(e) => (phoneNumber.value = e.target.value)}
-        />
-
-        <select
-          class="appearance-none bg-[#E5E9F0] px-3 outline-none text-gray-400 valid:text-black"
-          onChange={(e) => (phoneCarrier.value = e.target.value)}
-          required
-        >
-          <option value="">Select Carrier</option>
-          <option value="Verizon">Verizon</option>
-        </select>
-      </div>
-
-      <label for="referencePhoto" class="block text-gray-600 text-lg px-3 mt-1">
-        Reference photo
-      </label>
-      <div class="bg-[#E5E9F0] p-3">
-        {refPhotoSrc ? (
-          <img id="referencePhotoPreview" src={refPhotoSrc} />
-        ) : (
-          <input
-            type="file"
-            name="referencePhoto"
-            id="referencePhoto"
-            accept="image/*"
-            onChange={(e) => {
-              referencePhotoCid.value = e.target.files[0];
-              showPreview(e);
+    <form action="#" id="form" onSubmit={uploadFile}>
+      {fileUrl.value
+        ? (
+          <div class="relative mb-4">
+            <img src={fileUrl.value} alt="" />
+            <button
+              onClick={handleCancel}
+              class="absolute top-4 right-4 border bg-gray-200 border-gray-400 px-1"
+            >
+              Undo photograph selection
+            </button>
+          </div>
+        )
+        : (
+          <div
+            class={`text-center border ${
+              fileEntered.value ? "bg-gray-200 border-blue-600" : "border-black"
+            } p-4 mb-4`}
+            onDragOver={handleDragOver}
+            onDragLeave={() => {
+              fileEntered.value = false;
             }}
-          />
+            onDrop={handleDrop}
+          >
+            <p class="mb-4">
+              <span>Drag a photograph here, or</span>{" "}
+              <label
+                for="file"
+                class="bg-gray-200 border border-gray-400 px-1 py-0.5"
+              >
+                Browse your computer
+              </label>
+              <input
+                type="file"
+                name="file"
+                id="file"
+                class="hidden"
+                onChange={handleChange}
+              />
+            </p>
+            <p class="text-gray-500">Supports: JPG, JPEG2000, PNG</p>
+          </div>
         )}
-      </div>
-    </div>
+
+      <label for="comments">Comments:</label>
+      <br />
+      <textarea
+        name="comments"
+        id="comments"
+        class="border border-black w-full resize-none mb-4"
+      >
+      </textarea>
+      <br />
+      <input
+        type="submit"
+        value={isTransferring ? "Transferring..." : "Initiate transfer"}
+        class="px-1 bg-gray-200 border border-gray-400"
+      />
+    </form>
   );
 }
