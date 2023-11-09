@@ -54,11 +54,14 @@ export default function Gallery() {
       <div class="relative grid grid-cols-3 gap-0.5">
         {items.map((item) => (
           <div class="pt-[100%] relative">
-            <a href={`https://${item.mediaCid}.ipfs.w3s.link`}>
+            <a
+              href={`https://${item.mediaCid}.ipfs.w3s.link`}
+              class="absolute top-0 w-full h-full"
+            >
               <img
                 src={`https://${item.mediaCid}.ipfs.w3s.link`}
                 alt=""
-                class="absolute top-0 w-full h-full object-cover pointer-events-none"
+                class="w-full h-full object-cover"
               />
             </a>
           </div>

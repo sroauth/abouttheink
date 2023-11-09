@@ -264,7 +264,7 @@ export default function Home() {
 
               <div
                 id="Artist_Sabastian_Auth"
-                class="flex gap-4 mb-4 pb-4 border-b"
+                class="flex gap-4 mb-4"
               >
                 <img
                   src="/images/artists/sabastian-auth.jpg"
@@ -275,7 +275,7 @@ export default function Home() {
                 <div>
                   <p class="text-lg">Sabastian Auth</p>
                   <p class="mb-4">
-                    Click one of the social icons below to contact this artist.
+                    Click either social icon below to contact this artist.
                   </p>
                   <div class="flex gap-4">
                     <a
