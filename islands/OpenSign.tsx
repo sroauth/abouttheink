@@ -54,9 +54,12 @@ export default function OpenSign() {
         <ul class="list-disc list-inside border-l border-b border-r border-gray-400 text-xl p-2 pl-6">
           {artists.map((item) => (
             <li>
-              <a href="#" class="text-blue-600 underline">{item}</a> -{" "}
+              <a href="#View_our_artists" class="text-blue-600 underline">
+                {item}
+              </a>{" "}
+              {"<- "}
               <span>
-                Book now (<abbr title="Work-in-progress">WIP</abbr>)
+                Click to contact
               </span>
             </li>
           ))}

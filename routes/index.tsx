@@ -184,6 +184,9 @@ export default function Home() {
                   class="block w-full mb-4"
                 />
                 <p class="text-lg mb-4">Jason Auth</p>
+                <p>
+                  Click one of the social icons below to contact this artist.
+                </p>
                 <div class="flex justify-evenly gap-4">
                   <a
                     href="https://instagram.com/abouttheinktattoos"
@@ -219,6 +222,9 @@ export default function Home() {
                   class="block w-full mb-4"
                 />
                 <p class="text-lg mb-4">Ashley Cooksey</p>
+                <p>
+                  Click one of the social icons below to contact this artist.
+                </p>
                 <div class="flex justify-evenly gap-4">
                   <a
                     href="https://instagram.com/tattoosbyashleyrose"
@@ -254,6 +260,9 @@ export default function Home() {
                   class="block w-full mb-4"
                 />
                 <p class="text-lg mb-4">Sabastian Auth</p>
+                <p>
+                  Click one of the social icons below to contact this artist.
+                </p>
                 <div class="flex justify-evenly gap-4">
                   <a
                     href="https://instagram.com/sabastianauth"
