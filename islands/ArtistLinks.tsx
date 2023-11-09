@@ -1,27 +1,15 @@
 import { useEffect, useState } from "preact/hooks";
-import { Gun, User } from "../utils/gun.ts";
+import { User } from "../utils/gun.ts";
 
 export default function ArtistLinks() {
-  const gun = Gun.value;
   const user = User.value;
 
-  const [isArtist, setIsArtist] = useState(false);
   const [isAvailable, setIsAvailable] = useState(false);
 
   useEffect(() => {
-    gun.user(
-      "LQFZBtZY-9YtryPCPpzcJC2VkFVE2_SGiRqGeoRkz6g.HoB8gbywn9WVGqNmgVHL4dXw8AnZbbXN0ZhQwJPFCsE",
-    ).get("artists").map().once((data) => {
-      if (!user.is?.pub) {
-        window.location.href = "/app/login";
-      }
-
-      if (user.is.pub === data.pub) {
-        setIsArtist(true);
-      } else {
-        window.location.href = "/app/login";
-      }
-    });
+    if (!user.is) {
+      window.location.href = "/app/login";
+    }
 
     user.get("available").once((value) => {
       setIsAvailable(value);
@@ -53,45 +41,25 @@ export default function ArtistLinks() {
             Go to the Main page
           </a>
         </li>
-        {isArtist
-          ? (
-            <li>
-              <a
-                href="/app/catalog"
-                title="Dashboard - Transfer Photographs - About the Ink Tattoos"
-                class="text-blue-600 underline"
-              >
-                Manage your catalog
-              </a>
-            </li>
-          )
-          : (
-            <li class="">
-              <span class="bg-black cursor-default">
-                Manage your catalog
-              </span>
-            </li>
-          )}
-        {isArtist
-          ? (
-            <li>
-              <a
-                href="#"
-                title="Logout - About the Ink Tattoos"
-                class="text-blue-600 underline"
-                onClick={handleLeave}
-              >
-                Nullify your credentials
-              </a>
-            </li>
-          )
-          : (
-            <li>
-              <span class="bg-black cursor-default">
-                Nullify your credentials
-              </span>
-            </li>
-          )}
+        <li>
+          <a
+            href="/app/catalog"
+            title="Dashboard - Transfer Photographs - About the Ink Tattoos"
+            class="text-blue-600 underline"
+          >
+            Manage your catalog
+          </a>
+        </li>
+        <li>
+          <a
+            href="#"
+            title="Logout - About the Ink Tattoos"
+            class="text-blue-600 underline"
+            onClick={handleLeave}
+          >
+            Nullify your credentials
+          </a>
+        </li>
       </ul>
 
       <h3 class="font-sans font-bold text-3xl mb-4">
