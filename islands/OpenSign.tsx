@@ -4,8 +4,8 @@ import { Gun } from "../utils/gun.ts";
 export default function OpenSign() {
   const gun = Gun.value;
 
-  const [availabilityRetrieved, setAvailabilityRetrieved] = useState(false);
-  const [isAvailable, setIsAvailable] = useState(false);
+  // const [availabilityRetrieved, setAvailabilityRetrieved] = useState(false);
+  // const [isAvailable, setIsAvailable] = useState(false);
   const [artists, setArtists] = useState([]);
 
   useEffect(() => {
@@ -13,8 +13,8 @@ export default function OpenSign() {
       "LQFZBtZY-9YtryPCPpzcJC2VkFVE2_SGiRqGeoRkz6g.HoB8gbywn9WVGqNmgVHL4dXw8AnZbbXN0ZhQwJPFCsE",
     ).get("artists").map().once((data) => {
       gun.user(data.pub).get("available").on((value) => {
-        setIsAvailable(value);
-        setAvailabilityRetrieved(true);
+        // setIsAvailable(value);
+        // setAvailabilityRetrieved(true);
 
         setArtists((prevState) => {
           if (value) {
@@ -37,16 +37,18 @@ export default function OpenSign() {
     });
   }, []);
 
-  return availabilityRetrieved
+  return artists.length > 0
     ? (
       <div class="mb-4">
-        <details open={isAvailable}>
+        <details open={artists.length > 0}>
           <summary
             class={`font-sans p-4 font-bold text-3xl ${
-              isAvailable ? "bg-green-600 text-white" : "bg-red-600 text-white"
+              artists.length > 0
+                ? "bg-green-600 text-white"
+                : "bg-red-600 text-white"
             }`}
           >
-            {isAvailable
+            {artists.length > 0
               ? "Artists available for walk-ins"
               : "No artists available for walk-ins"}
           </summary>
