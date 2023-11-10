@@ -21,38 +21,37 @@ export default function CatalogItemDetails(props) {
   }
 
   function deleteItem(key) {
-    user.get("catalog").get(props.itemKey).put(null, () => {
-      window.location.href = "/app/catalog";
-    });
+    if (confirm("Are you sure you want to delete this photo?")) {
+      user.get("catalog").get(props.itemKey).put(null, () => {
+        window.location.href = "/app/catalog";
+      });
+    }
   }
 
-  return (
-    <div>
-      {Object.keys(item).length > 0
-        ? (
-          <img
-            src={`https://${item.mediaCid}.ipfs.w3s.link`}
-            alt=""
-            class="mb-0.5"
+  return Object.keys(item).length > 0
+    ? (
+      <div>
+        <div class="flex gap-0.5 mb-0.5">
+          <input
+            type="text"
+            id="test"
+            placeholder="Add a Caption"
+            class="flex-grow border border-black rounded-none"
+            value={item.comments}
+            onInput={updateCaption}
           />
-        )
-        : null}
-      <div class="flex gap-0.5">
-        <input
-          type="text"
-          id="test"
-          placeholder="Add a Caption"
-          class="flex-grow border border-black"
-          value={item.comments}
-          onInput={updateCaption}
+          <button
+            class="border border-red-400 bg-red-200 text-red-900 px-1"
+            onClick={deleteItem}
+          >
+            Delete
+          </button>
+        </div>
+
+        <img
+          src={`https://${item.mediaCid}.ipfs.w3s.link`}
         />
-        <button
-          class="border border-gray-400 bg-gray-200 px-1"
-          onClick={deleteItem}
-        >
-          Delete catalog item
-        </button>
       </div>
-    </div>
-  );
+    )
+    : <div></div>;
 }

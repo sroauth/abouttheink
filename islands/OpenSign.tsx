@@ -1,73 +1,102 @@
 import { useEffect, useState } from "preact/hooks";
-import { Gun } from "../utils/gun.ts";
+import { Gun, masterPub } from "../utils/gun.ts";
+
+interface Artist {
+  pub: string;
+  firstName: string;
+  lastName: string;
+}
 
 export default function OpenSign() {
   const gun = Gun.value;
 
-  // const [availabilityRetrieved, setAvailabilityRetrieved] = useState(false);
-  // const [isAvailable, setIsAvailable] = useState(false);
-  const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState<Array<string>>([]);
+
+  const socials = {
+    "Jason Auth": {
+      instagram: "https://ig.me/m/abouttheinktattoos",
+      facebook: "https://m.me/abouttheinktattoos",
+    },
+    "Sabastian Auth": {
+      instagram: "https://ig.me/m/sabastianauth",
+      facebook: "https://m.me/abouttheinktattoos",
+    },
+  };
 
   useEffect(() => {
-    gun.user(
-      "LQFZBtZY-9YtryPCPpzcJC2VkFVE2_SGiRqGeoRkz6g.HoB8gbywn9WVGqNmgVHL4dXw8AnZbbXN0ZhQwJPFCsE",
-    ).get("artists").map().once((data) => {
-      gun.user(data.pub).get("available").on((value) => {
-        // setIsAvailable(value);
-        // setAvailabilityRetrieved(true);
+    gun.user(masterPub).get("artists").map().once((artist: Artist) => {
+      gun.user(artist.pub).get("available").on((isAvailable: boolean) => {
+        setArtists((prevState: Array<string>) => {
+          const name = `${artist.firstName} ${artist.lastName}`;
+          const isListed = prevState.filter((e) => e === name).length > 0;
 
-        setArtists((prevState) => {
-          if (value) {
-            if (!prevState.includes(`${data.firstName} ${data.lastName}`)) {
-              return [...prevState, `${data.firstName} ${data.lastName}`];
-            } else {
-              return prevState;
-            }
-          } else {
-            if (prevState.includes(`${data.firstName} ${data.lastName}`)) {
-              return prevState.filter((item) =>
-                item !== `${data.firstName} ${data.lastName}`
-              );
-            } else {
-              return prevState;
-            }
-          }
+          return !isAvailable
+            ? prevState.filter((e) => e !== name)
+            : !isListed
+            ? [...prevState, name]
+            : prevState;
         });
       });
     });
   }, []);
 
   return (
-    <div class="mb-4">
-      <details open={artists.length > 0}>
-        <summary
-          class={`font-sans p-4 font-bold text-xl ${
-            artists.length > 0
-              ? "bg-green-600 text-white"
-              : "bg-red-600 text-white"
-          }`}
-        >
-          {artists.length > 0
-            ? "Artists available for walk-ins"
-            : "No artists available for walk-ins"}
-        </summary>
-        <ul class="list-disc list-inside border-l border-b border-r border-gray-400 p-2 pl-5">
-          {artists.map((item) => (
-            <li>
+    <details open={artists.length > 0}>
+      <summary
+        class={`font-sans p-2 font-bold ${
+          artists.length > 0
+            ? "bg-green-600 text-white"
+            : "bg-red-600 text-white"
+        }`}
+      >
+        {artists.length > 0
+          ? "Artists available for walk-ins"
+          : "No artists available for walk-ins"}
+      </summary>
+
+      <ul class="border border-green-800">
+        {artists.map((item) => (
+          <li class="flex items-center justify-between gap-0.5 p-0.5 border border-green-800">
+            <div class="flex items-center gap-1">
+              <img
+                src={`/images/artists/${
+                  item.toLowerCase().replace(" ", "-")
+                }.jpg`}
+                class="w-8 h-8"
+              />
               <a
                 href={`#Artist_${item.replace(" ", "_")}`}
                 class="text-blue-600 underline"
               >
-                {item}
-              </a>{" "}
-              {"<- "}
-              <span>
-                Click to contact
-              </span>
-            </li>
-          ))}
-        </ul>
-      </details>
-    </div>
+                {`${item.split(" ")[0]} (Contact)`}
+              </a>
+            </div>
+
+            <div class="flex gap-0.5">
+              <a
+                href={socials[item].instagram}
+                target="_blank"
+                class="flex items-center justify-center bg-[#ff0176] w-8 h-8"
+              >
+                <img
+                  src="/images/glyphs/instagram.svg"
+                  class="w-[29px] h-[29px]"
+                />
+              </a>
+              <a
+                href={socials[item].facebook}
+                target="_blank"
+                class="flex items-center justify-center bg-[#3465aa] w-8 h-8"
+              >
+                <img
+                  src="/images/glyphs/facebook.svg"
+                  class="w-[29px] h-[29px]"
+                />
+              </a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </details>
   );
 }

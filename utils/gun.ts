@@ -28,3 +28,6 @@ export const uuid = () => {
 export const f0 = (t) => {
   return (t > 9 ? "" : "0") + t;
 };
+
+export const masterPub =
+  "LQFZBtZY-9YtryPCPpzcJC2VkFVE2_SGiRqGeoRkz6g.HoB8gbywn9WVGqNmgVHL4dXw8AnZbbXN0ZhQwJPFCsE";

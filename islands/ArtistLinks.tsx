@@ -31,8 +31,9 @@ export default function ArtistLinks() {
 
   return (
     <div>
-      <ul class="list-disc list-inside pb-4 mb-4 border-b border-black">
+      <ul class="pb-4 mb-4 border-b border-black font-mono">
         <li>
+          🏠{" "}
           <a
             href="/"
             title="Main - About the Ink Tattoos"
@@ -42,6 +43,7 @@ export default function ArtistLinks() {
           </a>
         </li>
         <li>
+          🌄{" "}
           <a
             href="/app/catalog"
             title="Dashboard - Transfer Photographs - About the Ink Tattoos"
@@ -51,6 +53,7 @@ export default function ArtistLinks() {
           </a>
         </li>
         <li>
+          💣{" "}
           <a
             href="#"
             title="Logout - About the Ink Tattoos"

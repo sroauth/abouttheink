@@ -118,7 +118,7 @@ export default function CatalogManager() {
   }
 
   return (
-    <div class="relative grid grid-cols-3 gap-0.5">
+    <div class="relative grid grid-cols-2 gap-0.5 md:grid-cols-3">
       <div class="pt-[100%] relative">
         <div
           class={`border absolute top-0 w-full h-full object-cover p-4 text-center ${

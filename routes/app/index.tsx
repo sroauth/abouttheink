@@ -10,12 +10,12 @@ export default function Dashboard() {
       </Head>
 
       <div class="max-w-[34em] mx-auto font-serif leading-normal p-4">
-        <h1 class="font-sans font-bold text-7xl mb-4">
-          <small class="block text-4xl">Primary</small> Dashboard
+        <h1 class="font-sans font-bold text-6xl mb-4">
+          <small class="block text-3xl">About the Ink</small> Hub
         </h1>
 
-        <h2 class="font-sans font-light text-2xl mb-4">
-          Engage in operations for overseeing your catalog and clientele
+        <h2 class="font-sans font-light text-xl mb-4">
+          Manage your catalog and availability
         </h2>
 
         <ArtistLinks />

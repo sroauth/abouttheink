@@ -38,34 +38,34 @@ export default function Auth() {
   }
 
   return (
-    <form action="#" class="border border-black p-4">
+    <form action="#" class="border-y border-black font-mono py-4">
       <div class="flex items-end mb-4">
-        <label for="alias">Unique identifier</label>
+        <label for="alias">Username</label>
         <input
           type="text"
           name="alias"
           id="alias"
           placeholder="johndoe"
-          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
+          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none rounded-none focus:border-blue-600 focus:text-blue-600"
           onInput={(e) => setAlias(e.target.value)}
         />
       </div>
       <div class="flex items-center mb-4">
-        <label for="password">Passphrase</label>
+        <label for="password">Password</label>
         <input
           type="password"
           name="password"
           id="password"
           placeholder="********"
-          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none font-mono focus:border-blue-600 focus:text-blue-600"
+          class="flex-grow min-w-0 border-b-2 border-black border-dotted pl-2 outline-none rounded-none focus:border-blue-600 focus:text-blue-600"
           onInput={(e) => setPassword(e.target.value)}
         />
       </div>
       <p class="text-red-600 mb-4">{error}</p>
       <input
         type="submit"
-        value="Verify credentials"
-        class="bg-gray-200 border border-gray-400 px-1"
+        value="Log in"
+        class="bg-gray-200 border border-gray-400 px-1 font-normal rounded-none"
         onClick={handleAuthenticate}
       />
     </form>

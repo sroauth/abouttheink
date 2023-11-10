@@ -10,52 +10,57 @@ export default function TattooAftercareInstructions() {
 
       <div class="max-w-[34em] mx-auto font-serif leading-normal p-4">
         <header>
-          <h1 class="font-sans font-bold text-7xl mb-4">
-            <small class="block text-4xl">Tattoo Aftercare</small> Instructions
+          <h1 class="font-sans font-bold text-5xl mb-4">
+            <small class="block text-2xl">Tattoo Aftercare</small> Instructions
           </h1>
 
-          <h2 class="font-sans font-light text-2xl mb-4">
+          <h2 class="font-sans font-light text-xl mb-4">
             Follow these instructions to care for a fresh tattoo
           </h2>
         </header>
 
-        <nav class="border-b border-black pb-4 mb-4">
-          <ul class="list-disc list-inside">
+        <nav class="border-b-2 border-black pb-8 mb-0.5">
+          <ul class="font-mono">
             <li>
+              🏠{" "}
               <a href="/" class="text-blue-600 underline">
-                Go to the Main page for About the Ink Tattoos
+                Go to the Main page
               </a>
             </li>
             <li>
+              🩹{" "}
               <a
                 href="#If_we_provided_you_with_a_saniderm_bandage"
                 class="text-blue-600 underline"
               >
-                If We Provided You With a Saniderm Bandage
+                Saniderm Bandage
               </a>
             </li>
             <li>
+              🧴{" "}
               <a
                 href="#How_to_moisturize_a_fresh_tattoo"
                 class="text-blue-600 underline"
               >
-                How To Moisturize a Fresh Tattoo
+                Moisturizing
               </a>
             </li>
             <li>
+              🥵{" "}
               <a
                 href="#How_to_deal_with_inflammation"
                 class="text-blue-600 underline"
               >
-                How To Deal With Inflammation
+                Inflammation
               </a>
             </li>
             <li>
+              ❤️‍🩹{" "}
               <a
                 href="#What_to_expect_during_the_healing_process"
                 class="text-blue-600 underline"
               >
-                What To Expect During the Healing Process
+                Healing Process
               </a>
             </li>
           </ul>
@@ -64,12 +69,11 @@ export default function TattooAftercareInstructions() {
         <section>
           <article
             id="If_we_provided_you_with_a_saniderm_bandage"
-            class="border-b border-black pb-4 mb-4"
+            class="border-b-2 border-black pb-8 mb-0.5"
           >
-            <h3 class="font-sans font-bold text-3xl mb-4">
-              <small class="block text-xl">If We Provided You With a</small>
-              {" "}
-              Saniderm Bandage
+            <h3 class="font-sans font-bold text-2xl mb-4 leading-none">
+              <small class="text-base">If We Provided You With a</small>
+              <br />Saniderm Bandage
             </h3>
 
             <p class="mb-4">
@@ -109,11 +113,11 @@ export default function TattooAftercareInstructions() {
 
           <article
             id="How_to_moisturize_a_fresh_tattoo"
-            class="border-b border-black pb-4 mb-4"
+            class="border-b-2 border-black pb-8 mb-0.5"
           >
-            <h3 class="font-sans font-bold text-3xl mb-4">
-              <small class="block text-xl">How To</small>{" "}
-              Moisturize a Fresh Tattoo
+            <h3 class="font-sans font-bold text-2xl mb-4 leading-none">
+              <small class="text-base">How To</small>
+              <br />Moisturize a New Tattoo
             </h3>
 
             <p class="mb-4">
@@ -136,8 +140,9 @@ export default function TattooAftercareInstructions() {
             id="How_to_deal_with_inflammation"
             class="border-b border-black pb-4 mb-4"
           >
-            <h3 class="font-sans font-bold text-3xl mb-4">
-              <small class="block text-xl">How To</small> Deal With Inflammation
+            <h3 class="font-sans font-bold text-2xl mb-4 leading-none">
+              <small class="text-base">How To</small>
+              <br />Deal With Inflammation
             </h3>
 
             <p class="mb-4">
@@ -154,7 +159,7 @@ export default function TattooAftercareInstructions() {
             </p>
           </article>
 
-          <article class="border-b border-black pb-4 mb-4">
+          <article class="border-b-2 border-black pb-8 mb-0.5">
             <p>
               <strong class="text-red-600">
                 Do not pick at, pull off any skin or scratch the tattoo.
@@ -163,9 +168,9 @@ export default function TattooAftercareInstructions() {
           </article>
 
           <article id="What_to_expect_during_the_healing_process">
-            <h3 class="font-sans font-bold text-3xl mb-4">
-              <small class="block text-xl">What To Expect</small>{" "}
-              During the Healing Process
+            <h3 class="font-sans font-bold text-2xl mb-4 leading-none">
+              <small class="text-base">What To Expect During</small>
+              <br />The Healing Process
             </h3>
 
             <p class="mb-4">
@@ -231,7 +236,7 @@ export default function TattooAftercareInstructions() {
               </a>
               <br />
               <a
-                href="https://instagram.com/abouttheinktattoos"
+                href="https://ig.me/m/abouttheinktattoos"
                 target="_blank"
                 class="inline-block bg-[#ff0176] p-2"
               >
@@ -243,7 +248,7 @@ export default function TattooAftercareInstructions() {
                 />
               </a>{" "}
               <a
-                href="https://facebook.com/abouttheinktattoos"
+                href="https://m.me/abouttheinktattoos"
                 target="_blank"
                 class="inline-block bg-[#3465aa] p-2"
               >
