@@ -11,7 +11,7 @@ export default function App({ Component }: AppProps) {
       <body>
         <div itemscope itemtype="https://schema.org/WebSite">
           <meta itemprop="url" content="https://abouttheink.com/" />
-          <meta itemprop="name" content="About the Ink Tattos" />
+          <meta itemprop="name" content="About the Ink Tattoos" />
         </div>
 
         <Component />
