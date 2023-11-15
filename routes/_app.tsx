@@ -6,31 +6,21 @@ export default function App({ Component }: AppProps) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>about-the-ink</title>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#c9d33f" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+        <title>About the Ink Tattoos</title>
       </head>
       <body>
+        <div itemscope itemtype="https://schema.org/WebSite">
+          <meta itemprop="url" content="https://abouttheink.com/" />
+          <meta itemprop="name" content="About the Ink Tattos" />
+        </div>
+
         <Component />
+
+        <footer class="max-w-[34em] mx-auto p-4">
+          <p class="text-sm">
+            &copy; 2023 About the Ink Tattoos. All rights reserved.
+          </p>
+        </footer>
       </body>
     </html>
   );

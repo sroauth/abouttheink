@@ -8,11 +8,19 @@ export default function Home() {
       <Head>
         <title>About the Ink Tattoos</title>
 
+        <meta
+          name="description"
+          content="Premier tattoo shop in Charles County, MD, established in 1993. Home to diligent artists Jason Auth, Ashley Cooksey, and Sabastian Auth."
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="About the Ink Tattoos" />
+
         <link rel="stylesheet" href="/shared.css" />
       </Head>
 
-      <div class="max-w-[34em] mx-auto font-serif leading-normal p-4">
-        <header>
+      <main class="max-w-[34em] mx-auto font-serif leading-normal p-4">
+        <hgroup>
           <h1 class="font-sans font-bold text-6xl mb-4">
             <small class="text-3xl">About the Ink</small>
             <br />Tattoos
@@ -21,7 +29,7 @@ export default function Home() {
           <h2 class="font-sans font-light text-xl mb-4">
             Rendering the art of tattoos for more than 30 years
           </h2>
-        </header>
+        </hgroup>
 
         <nav class="mb-4 font-mono">
           <ul>
@@ -82,15 +90,15 @@ export default function Home() {
           </ul>
         </nav>
 
-        <section>
-          <article class="border-b-2 border-black pb-8 mb-0.5">
+        <article>
+          <section class="border-b-2 border-black pb-8 mb-0.5">
             <OpenSign />
             <p class="text-right mt-0.5">
               <em>Availability is updated in realtime.</em>
             </p>
-          </article>
+          </section>
 
-          <article
+          <section
             id="Walk-in_Hours"
             class="border-b-2 border-black pb-4 mb-0.5"
           >
@@ -167,9 +175,9 @@ export default function Home() {
                 </tr>
               </tbody>
             </table>
-          </article>
+          </section>
 
-          <article
+          <section
             id="Contact_Us"
             class="border-b-2 border-black pb-8 mb-0.5"
           >
@@ -210,9 +218,9 @@ export default function Home() {
                 webmaster
               </a>.
             </address>
-          </article>
+          </section>
 
-          <article
+          <section
             id="Our_Artists"
             class="border-b-2 border-black pb-8 mb-0.5"
           >
@@ -358,9 +366,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </article>
+          </section>
 
-          <article
+          <section
             id="Our_Latest_Work"
             class="border-b-2 border-black pb-8 mb-0.5"
           >
@@ -370,9 +378,9 @@ export default function Home() {
             </h3>
 
             <Gallery />
-          </article>
+          </section>
 
-          <article
+          <section
             id="Piercing_Services"
             class="border-b border-black pb-8 mb-4"
           >
@@ -394,13 +402,9 @@ export default function Home() {
                 for piercing related inquiries.
               </p>
             </p>
-          </article>
-        </section>
-
-        <section>
-          <p class="text-sm">Copyright &copy; 2023. About the Ink Tattoos.</p>
-        </section>
-      </div>
+          </section>
+        </article>
+      </main>
     </>
   );
 }
