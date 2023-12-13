@@ -2,8 +2,8 @@ import { signal } from "@preact/signals";
 import GUN from "gun";
 import "gun/sea";
 
-// export const Gun = signal(GUN(["http://127.0.0.1:8765/gun"]));
-export const Gun = signal(GUN(["https://elderlake.glitch.me/gun"]));
+export const Gun = signal(GUN(["http://127.0.0.1:8765/gun"]));
+// export const Gun = signal(GUN(["https://elderlake.glitch.me/gun"]));
 
 export const User = signal(Gun.value.user().recall({ sessionStorage: true }));
 

@@ -67,6 +67,7 @@ html {
 	gap: 0.5rem;
 }
 .tracker img {
+	display: block;
 	width: 24px;
 	height: 24px;
 	border-radius: 20px;

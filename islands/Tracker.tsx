@@ -17,6 +17,17 @@ export default function Tracker(props: TrackerProps) {
 
   const [artists, setArtists] = useState({});
 
+  const links = {
+    "sabastianauth": {
+      instagram: "sabastianauth",
+      facebook: "abouttheinktattoos",
+    },
+    "jasonauth": {
+      instagram: "abouttheinktattoos",
+      facebook: "abouttheinktattoos",
+    },
+  };
+
   useEffect(() => {
     gun.user(masterPub).get("artists").map().once(
       (artistData: Artist, artistId: string) => {
@@ -60,14 +71,20 @@ export default function Tracker(props: TrackerProps) {
                     }-${artists[artistId].lastName.toLowerCase()}.jpg`}
                     alt=""
                   />
-                  {`${artists[artistId].firstName} ${
-                    artists[artistId].lastName
-                  }`}
+                  <a href="#Our_Artists">
+                    {`${artists[artistId].firstName} ${
+                      artists[artistId].lastName
+                    }`}
+                  </a>
                 </div>
 
                 <div>
-                  <img src="/assets/images/facebook.svg" alt="" />
-                  <img src="/assets/images/instagram.svg" alt="" />
+                  <a href={`https://m.me/${links[artistId].facebook}`}>
+                    <img src="/assets/images/facebook.svg" alt="" />
+                  </a>
+                  <a href={`https://ig.me/m/${links[artistId].instagram}`}>
+                    <img src="/assets/images/instagram.svg" alt="" />
+                  </a>
                 </div>
               </li>
             )
