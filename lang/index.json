@@ -1,0 +1,90 @@
+{
+  "subtitle": {
+    "en-US": "Southern MD's First Tattoo Shop Since 1993",
+    "es-ES": "Primer estudio de tatuajes en el sur de Maryland desde 1993."
+  },
+  "aftercare-instructions": {
+    "en-US": "Aftercare Instructions",
+    "es-ES": "Cuidados del tatuaje"
+  },
+  "walk-in_artists--available": {
+    "en-US": "The following artists are currently available:",
+    "es-ES": "Estos son los artistas disponibles para clientes sin cita previa"
+  },
+  "walk-in_artists--unavailable": {
+    "en-US": "All artists are currently unavailable.",
+    "es-ES": "Estos son los artistas disponibles para clientes sin cita previa"
+  },
+  "closed": {
+    "en-US": "Closed",
+    "es-ES": "Cerrado"
+  },
+  "monday": {
+    "en-US": "Monday",
+    "es-ES": "Lunes"
+  },
+  "tuesday": {
+    "en-US": "Tuesday",
+    "es-ES": "Martes"
+  },
+  "wednesday": {
+    "en-US": "Wednesday",
+    "es-ES": "Miércoles"
+  },
+  "thursday": {
+    "en-US": "Thursday",
+    "es-ES": "Jueves"
+  },
+  "friday": {
+    "en-US": "Friday",
+    "es-ES": "Viernes"
+  },
+  "saturday": {
+    "en-US": "Saturday",
+    "es-ES": "Sábado"
+  },
+  "sunday": {
+    "en-US": "Sunday",
+    "es-ES": "Domingo"
+  },
+  "walk-in_hours--header": {
+    "en-US": "Walk-in Hours",
+    "es-ES": "Horas de Atención sin Cita"
+  },
+  "walk-in_hours--intro": {
+    "en-US": "Visit our shop during walk-in hours to receive prompt service. No appointment is needed, but first come is first served.",
+    "es-ES": "Visita nuestra tienda durante las horas de atención sin cita para recibir un servicio rápido. No es necesario hacer una cita, pero se atiende por orden de llegada."
+  },
+  "contact_us--header": {
+    "en-US": "Contact Us",
+    "es-ES": "Contáctenos"
+  },
+  "contact_us--intro": {
+    "en-US": "Do you have any questions or concerns? Use the contact information below to reach us.",
+    "es-ES": "¿Tienes alguna pregunta o inquietud? Utiliza la información de contacto que se encuentra a continuación para comunicarte con nosotros."
+  },
+  "notice_bug": {
+    "en-US": "Notice a bug?",
+    "es-ES": "¿Has notado algún error?"
+  },
+  "email_webmaster": {
+    "en-US": "Email the webmaster",
+    "es-ES": "Envía un correo electrónico al webmaster"
+  },
+  "our_artists--header": {
+    "en-US": "Our Artists",
+    "es-ES": "Nuestros Artistas"
+  },
+  "our_artists--intro": {
+    "en-US": "Explore Jason's nightmarishly refined creations, Ashley's meticulous artwork, and Sabastian's delicate style.",
+    "es-ES": "Explora las creaciones aterradoras y refinadas de Jason, la meticulosa obra de arte de Ashley y el estilo delicado de Sabastian."
+  },
+  "piercing_services--header": {
+    "en-US": "Piercing Services",
+    "es-ES": "Servicios de Piercing"
+  },
+  "piercing_services--intro": {
+    "en-US": "We do not provide piercing services. For piercing-related inquiries, contact JR at",
+    "es-ES": "No ofrecemos servicios de piercing. Para consultas relacionadas con piercings, comunícate con JR en"
+  }
+}

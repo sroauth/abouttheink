@@ -1,0 +1,26 @@
+{
+  "last_updated": {
+    "en-US": "Last updated on",
+    "es-ES": "Última actualización el"
+  },
+  "home": {
+    "en-US": "Home",
+    "es-ES": "Portada"
+  },
+  "table_of_contents--header": {
+    "en-US": "Table of Contents",
+    "es-ES": "Tabla de Contenidos"
+  },
+  "call": {
+    "en-US": "Call us at",
+    "es-ES": "Llámanos al"
+  },
+  "email": {
+    "en-US": "Email",
+    "es-ES": "Correo electrónico"
+  },
+  "visit": {
+    "en-US": "Visit during walk-in hours",
+    "es-ES": "Visita durante las horas sin cita previa"
+  }
+}

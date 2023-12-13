@@ -23,6 +23,7 @@ import * as $$5 from "./islands/Form.tsx";
 import * as $$6 from "./islands/Gallery.tsx";
 import * as $$7 from "./islands/MasterAuth.tsx";
 import * as $$8 from "./islands/OpenSign.tsx";
+import * as $$9 from "./islands/Tracker.tsx";
 
 const manifest = {
   routes: {
@@ -49,6 +50,7 @@ const manifest = {
     "./islands/Gallery.tsx": $$6,
     "./islands/MasterAuth.tsx": $$7,
     "./islands/OpenSign.tsx": $$8,
+    "./islands/Tracker.tsx": $$9,
   },
   baseUrl: import.meta.url,
 };

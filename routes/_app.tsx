@@ -2,25 +2,20 @@ import { AppProps } from "$fresh/server.ts";
 
 export default function App({ Component }: AppProps) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>About the Ink Tattoos</title>
+
+        <title>
+          About the Ink: Southern MD's First Tattoo Shop Since 1993
+        </title>
+
+        <link rel="stylesheet" href="/assets/styles/shared.css" />
       </head>
+
       <body>
-        <div itemscope itemtype="https://schema.org/WebSite">
-          <meta itemprop="url" content="https://abouttheink.com/" />
-          <meta itemprop="name" content="About the Ink Tattoos" />
-        </div>
-
         <Component />
-
-        <footer class="max-w-[34em] mx-auto p-4">
-          <p class="text-sm">
-            &copy; 2023 About the Ink Tattoos. All rights reserved.
-          </p>
-        </footer>
       </body>
     </html>
   );

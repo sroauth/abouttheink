@@ -1,0 +1,30 @@
+body {
+	margin: 1.5rem 0 0 0;
+}
+
+address,
+h1,
+h2,
+h3,
+ol,
+p,
+table,
+ol,
+ul {
+	margin: 0 0 1rem 0;
+}
+
+nav,
+section {
+	padding: 1.5rem 0;
+}
+
+hgroup > *:last-child,
+nav > *:last-child,
+section > *:last-child {
+	margin: 0;
+}
+
+.pl-8 {
+	padding-left: 1.25rem;
+}
