@@ -9,21 +9,31 @@ import * as $3 from "./routes/app/catalog/[key].tsx";
 import * as $4 from "./routes/app/catalog/index.tsx";
 import * as $5 from "./routes/app/index.tsx";
 import * as $6 from "./routes/app/login.tsx";
-import * as $7 from "./routes/app/upload.tsx";
-import * as $8 from "./routes/documents/tattoo-aftercare-instructions.tsx";
-import * as $9 from "./routes/index.tsx";
-import * as $10 from "./routes/master/index.tsx";
-import * as $11 from "./routes/master/login.tsx";
-import * as $$0 from "./islands/ArtistForm.tsx";
-import * as $$1 from "./islands/ArtistLinks.tsx";
-import * as $$2 from "./islands/Auth.tsx";
-import * as $$3 from "./islands/CatalogItemDetails.tsx";
-import * as $$4 from "./islands/CatalogManager.tsx";
-import * as $$5 from "./islands/Form.tsx";
-import * as $$6 from "./islands/Gallery.tsx";
-import * as $$7 from "./islands/MasterAuth.tsx";
-import * as $$8 from "./islands/OpenSign.tsx";
-import * as $$9 from "./islands/Tracker.tsx";
+import * as $7 from "./routes/app/messages/[pub].tsx";
+import * as $8 from "./routes/app/messages/index.tsx";
+import * as $9 from "./routes/app/upload.tsx";
+import * as $10 from "./routes/artist/[name]/chat.tsx";
+import * as $11 from "./routes/artist/[name]/index.tsx";
+import * as $12 from "./routes/documents/tattoo-aftercare-instructions.tsx";
+import * as $13 from "./routes/index.tsx";
+import * as $14 from "./routes/master/index.tsx";
+import * as $15 from "./routes/master/login.tsx";
+import * as $$0 from "./islands/ArtistChat.tsx";
+import * as $$1 from "./islands/ArtistForm.tsx";
+import * as $$2 from "./islands/ArtistLinks.tsx";
+import * as $$3 from "./islands/Auth.tsx";
+import * as $$4 from "./islands/CatalogItemDetails.tsx";
+import * as $$5 from "./islands/CatalogManager.tsx";
+import * as $$6 from "./islands/Chat.tsx";
+import * as $$7 from "./islands/Form.tsx";
+import * as $$8 from "./islands/Gallery.tsx";
+import * as $$9 from "./islands/MasterAuth.tsx";
+import * as $$10 from "./islands/Messages.tsx";
+import * as $$11 from "./islands/NavigationBar.tsx";
+import * as $$12 from "./islands/OpenSign.tsx";
+import * as $$13 from "./islands/Page.tsx";
+import * as $$14 from "./islands/TabBar.tsx";
+import * as $$15 from "./islands/Tracker.tsx";
 
 const manifest = {
   routes: {
@@ -34,23 +44,33 @@ const manifest = {
     "./routes/app/catalog/index.tsx": $4,
     "./routes/app/index.tsx": $5,
     "./routes/app/login.tsx": $6,
-    "./routes/app/upload.tsx": $7,
-    "./routes/documents/tattoo-aftercare-instructions.tsx": $8,
-    "./routes/index.tsx": $9,
-    "./routes/master/index.tsx": $10,
-    "./routes/master/login.tsx": $11,
+    "./routes/app/messages/[pub].tsx": $7,
+    "./routes/app/messages/index.tsx": $8,
+    "./routes/app/upload.tsx": $9,
+    "./routes/artist/[name]/chat.tsx": $10,
+    "./routes/artist/[name]/index.tsx": $11,
+    "./routes/documents/tattoo-aftercare-instructions.tsx": $12,
+    "./routes/index.tsx": $13,
+    "./routes/master/index.tsx": $14,
+    "./routes/master/login.tsx": $15,
   },
   islands: {
-    "./islands/ArtistForm.tsx": $$0,
-    "./islands/ArtistLinks.tsx": $$1,
-    "./islands/Auth.tsx": $$2,
-    "./islands/CatalogItemDetails.tsx": $$3,
-    "./islands/CatalogManager.tsx": $$4,
-    "./islands/Form.tsx": $$5,
-    "./islands/Gallery.tsx": $$6,
-    "./islands/MasterAuth.tsx": $$7,
-    "./islands/OpenSign.tsx": $$8,
-    "./islands/Tracker.tsx": $$9,
+    "./islands/ArtistChat.tsx": $$0,
+    "./islands/ArtistForm.tsx": $$1,
+    "./islands/ArtistLinks.tsx": $$2,
+    "./islands/Auth.tsx": $$3,
+    "./islands/CatalogItemDetails.tsx": $$4,
+    "./islands/CatalogManager.tsx": $$5,
+    "./islands/Chat.tsx": $$6,
+    "./islands/Form.tsx": $$7,
+    "./islands/Gallery.tsx": $$8,
+    "./islands/MasterAuth.tsx": $$9,
+    "./islands/Messages.tsx": $$10,
+    "./islands/NavigationBar.tsx": $$11,
+    "./islands/OpenSign.tsx": $$12,
+    "./islands/Page.tsx": $$13,
+    "./islands/TabBar.tsx": $$14,
+    "./islands/Tracker.tsx": $$15,
   },
   baseUrl: import.meta.url,
 };

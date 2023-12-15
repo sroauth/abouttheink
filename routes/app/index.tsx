@@ -1,25 +1,43 @@
 import { Head } from "$fresh/runtime.ts";
-import ArtistLinks from "../../islands/ArtistLinks.tsx";
+import { RouteConfig } from "$fresh/server.ts";
+import { useSignal } from "@preact/signals";
+import NavigationBar from "@/islands/NavigationBar.tsx";
+import Page from "@/islands/Page.tsx";
+import TabBar from "@/islands/TabBar.tsx";
 
-export default function Dashboard() {
+export const config: RouteConfig = {
+  skipAppWrapper: true,
+};
+
+export default function AppHome() {
+  const index = useSignal(1);
+
   return (
     <>
       <Head>
-        <title>About the Ink Tattoos</title>
-        <link rel="stylesheet" href="/shared.css" />
+        <title>Inkbox</title>
+
+        <meta
+          name="viewport"
+          content="initial-scale=1, viewport-fit=cover, width=device-width"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="stylesheet" href="/assets/styles/app.css" />
       </Head>
 
-      <div class="max-w-[34em] mx-auto font-serif leading-normal p-4">
-        <h1 class="font-sans font-bold text-6xl mb-4">
-          <small class="block text-3xl">About the Ink</small> Hub
-        </h1>
+      <main>
+        <NavigationBar index={index} />
 
-        <h2 class="font-sans font-light text-xl mb-4">
-          Manage your catalog and availability
-        </h2>
+        <Page index={index} />
 
-        <ArtistLinks />
-      </div>
+        <TabBar index={index} />
+      </main>
     </>
   );
 }

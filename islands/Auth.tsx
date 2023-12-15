@@ -32,7 +32,9 @@ export default function Auth() {
       }
 
       user.auth(pair, (userReference) => {
-        window.location.href = "/app/";
+        localStorage.setItem("pair", JSON.stringify(pair));
+
+        window.location.href = "/app";
       });
     });
   }

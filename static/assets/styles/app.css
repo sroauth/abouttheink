@@ -1,0 +1,237 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	min-height: calc(100% + env(safe-area-inset-top));
+}
+
+body {
+	margin: 0;
+	font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+main {
+	padding-top: 100px;
+	height: 100%;
+}
+
+.navigation-bar {
+	padding-top: env(safe-area-inset-top);
+	height: 100px;
+	width: 100%;
+	/* background-color: rgba(255, 255, 255, 0.5); */
+	/* -webkit-backdrop-filter: blur(20px); */
+	position: fixed;
+	top: 0;
+	/* border-bottom: 1px solid rgba(0, 0, 0, 0.03); */
+	z-index: 20;
+	font-size: 1.25rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.navigation-bar--dark {
+	color: #ffffff;
+}
+
+.tab-bar {
+	height: calc(56px + env(safe-area-inset-bottom));
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	justify-content: space-evenly;
+	z-index: 20;
+}
+
+.tab-bar__item {
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.tab-bar__item--active {
+	color: blue;
+}
+
+.open-sign {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25rem;
+	padding: 0 2.5rem;
+	text-align: center;
+	transition: background-color 200ms ease-in-out;
+}
+
+.open-sign--available {
+	background-color: #FFF1D0;
+}
+
+.open-sign__title {
+	font-size: 2rem;
+}
+
+.toggle {
+	background-color: rgba(0, 0, 0, 0.07);
+	height: 72px;
+	border-radius: 9999px;
+	padding: 8px;
+}
+
+.toggle__handle {
+	background-color: #ffffff;
+	height: 56px;
+	width: 50%;
+	border-radius: 9999px;
+	font-weight: 600;
+	color: #000000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+.toggle__handle--animated {
+	transition: transform 200ms ease-in-out;
+}
+
+.open-sign--available .toggle__handle {
+	transform: translate(100%, 0);
+}
+
+
+/* Lightbulb */
+.container {
+	width: 128px;
+	margin: 0 auto;
+}
+#on {
+	 transform: translate(50%, 50%) scale(0);
+	 opacity: 0;
+}
+.open-sign--available #on {
+	 opacity: 1;
+	 transform: translate(0) scale(1);
+	 transition: all 0.14s ease-in;
+}
+ .fancy-bulb {
+	 position: relative;
+}
+ .streaks, .streaks:after, .streaks:before {
+	 position: absolute;
+	 background: #ffdb55;
+	 border-radius: 5.5px;
+	 height: 11px;
+}
+.streaks:after, .streaks:before {
+	 content: "";
+	 display: block;
+}
+ .streaks:before {
+	 bottom: 24px;
+}
+ .streaks:after {
+	 top: 24px;
+}
+ .left-streaks {
+	 right: 133px;
+	 top: 54px;
+}
+.open-sign--available .left-streaks {
+	 animation: move-left 0.38s ease-out, width-to-zero 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+ .left-streaks:before, .left-streaks:after {
+	 left: 15px;
+}
+.open-sign--available .left-streaks:before {
+	 animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+.open-sign--available .left-streaks:after {
+	 animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+ .right-streaks {
+	 left: 133px;
+	 top: 54px;
+}
+.open-sign--available .right-streaks {
+	 animation: move-right 0.38s ease-out, width-to-zero 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+ .right-streaks:before, .right-streaks:after {
+	 right: 15px;
+}
+.open-sign--available .right-streaks:before {
+	 animation: width-to-zero 0.38s ease-out, move-up 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+.open-sign--available .right-streaks:after {
+	 animation: width-to-zero 0.38s ease-out, move-down 0.38s ease-out;
+	 animation-delay: 0.14s;
+}
+ .left-streaks:before, .right-streaks:after {
+	 transform: rotate(34deg);
+}
+ .left-streaks:after, .right-streaks:before {
+	 transform: rotate(- 34deg);
+}
+ @keyframes move-left {
+	 0% {
+		 transform: none;
+	}
+	 65% {
+		 transform: translateX(-40px);
+	}
+	 100% {
+		 transform: translateX(-40px);
+	}
+}
+ @keyframes move-right {
+	 0% {
+		 transform: none;
+	}
+	 65% {
+		 transform: translateX(40px);
+	}
+	 100% {
+		 transform: translateX(40px);
+	}
+}
+ @keyframes width-to-zero {
+	 0% {
+		 width: 50px;
+	}
+	 100% {
+		 width: 11px;
+	}
+}
+ @keyframes move-up {
+	 100% {
+		 bottom: 64px;
+	}
+}
+ @keyframes move-down {
+	 100% {
+		 top: 64px;
+	}
+}

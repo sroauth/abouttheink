@@ -6,10 +6,24 @@ export default function ArtistLinks() {
 
   const [isAvailable, setIsAvailable] = useState(false);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!user.is) {
       window.location.href = "/app/login";
     }
+
+    // console.log(await SEA.pair());
+
+    // const cert = await SEA.certify(
+    //   "*",
+    //   { "*": "chat", "+": "*" },
+    //   user.pair(),
+    //   null,
+    //   { expiry: Date.now() + (30 * 60 * 60 * 24 * 1000) }, // 30 days expiry
+    // );
+
+    // user.get("certs").get("chat").put(cert);
+
+    // console.log(cert);
 
     user.get("available").once((value) => {
       setIsAvailable(value);

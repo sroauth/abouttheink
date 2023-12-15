@@ -173,3 +173,64 @@ html {
 .breadcrumbs > span:after {
 	border-left-color: #FFF1D0;
 }
+
+.messages {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+.messages__item {
+	display: flex;
+	gap: 1rem;
+}
+.messages__photo {
+	width: 64px;
+	height: 64px;
+	border-radius: 9999px;
+	background-color: #f0f0f0;
+}
+
+.chat {
+	display: grid;
+	grid-template-rows: 1fr 40px;
+	height: calc(100vh - 1.5rem);
+}
+.chat__messages {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	list-style-type: none;
+	padding: 0;
+	overflow-y: scroll;
+}
+.chat__line {
+	margin-bottom: 1rem;
+}
+.chat__line--from {
+	display: flex;
+	justify-content: flex-start;
+}
+.chat__line--to {
+	display: flex;
+	justify-content: flex-end;
+}
+.chat__bubble {
+	padding: 0.25rem 0.75rem;
+	border-radius: 20px;
+}
+.chat__line--from .chat__bubble {
+	background-color: blue;
+	color: #ffffff;
+}
+.chat__line--to .chat__bubble {
+	background-color: #f0f0f0;
+}
+.chat__input {
+	display: flex;
+}
+.chat__input input {
+	flex-grow: 1;
+	font-size: inherit;
+	padding: 0 0.5rem;
+}
