@@ -184,8 +184,9 @@ export default function Counter(props: PageProps) {
               : "You are unavailable at the moment"}
           </p>
           <p>
-            You are not visible for walk-ins. Mark yourself as available to
-            receive walk-in requests.
+            {isAvailable
+              ? "You are visible for walk-ins. Mark yourself as unavailable to avoid receiving walk-in requests."
+              : "You are not visible for walk-ins. Mark yourself as available to receive walk-in requests."}
           </p>
 
           <div class="toggle">
@@ -195,7 +196,7 @@ export default function Counter(props: PageProps) {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              Available
+              {isAvailable ? "Swipe Left" : "Swipe Right"}
             </div>
           </div>
         </div>
